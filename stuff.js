@@ -3,12 +3,12 @@ const chalk = require('chalk');
 
   // let currentDate = chalk.cyan(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
-  let currentDate = (moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
+  let currentDate =  chalk.cyan(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
   console.log('It is', currentDate);
-  let dayOfYear = (moment().format("DDDo"));
+  let dayOfYear = chalk.magenta(moment().format("DDDo"));
   console.log('It is the', dayOfYear);
-  let secondsInDay = (moment().format("ss"));
-  console.log('It is', secondsInDay);
+  let secondsInDay = chalk.greenBright(moment().unix());
+  console.log('It is', secondsInDay, 'seconds into the day');
   let leapYear = moment().isLeapYear();
   function isIt (question){
     if(question){
