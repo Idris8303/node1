@@ -7,14 +7,15 @@ const chalk = require('chalk');
   console.log('It is', currentDate);
   let dayOfYear = chalk.magenta(moment().format("DDDo"));
   console.log('It is the', dayOfYear);
-  let secondsInDay = chalk.greenBright(moment().unix());
+  // let secondsInDay = chalk.greenBright(moment().unix());
+   let secondsInDay = chalk.greenBright(moment().diff(moment().startOf('day'), 'seconds'));
   console.log('It is', secondsInDay, 'seconds into the day');
   let leapYear = moment().isLeapYear();
   function isIt (question){
     if(question){
-      return ' is';
+      return chalk.greenBright(' is');
     }else {
-      return 'Is not'
+      return chalk.red('Is not')
     }
   }
   console.log(`It ${isIt(moment().isLeapYear())} a leap year.`);
